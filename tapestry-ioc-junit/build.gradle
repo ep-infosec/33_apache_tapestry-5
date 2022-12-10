@@ -1,0 +1,10 @@
+description = "Utilities for junit testing a tapestry-ioc application"
+
+dependencies {
+    implementation project(':tapestry-ioc')
+	implementation 'junit:junit:4.11'
+}
+
+test {
+    useJUnit()
+}

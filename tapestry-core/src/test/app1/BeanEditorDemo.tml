@@ -1,0 +1,43 @@
+<t:border xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <h1>${pageTitle}</h1>
+
+    <p id="message">
+        <strong>${message}</strong>
+    </p>
+
+    <form t:id="registrationData" submitlabel="Register" cancel="true">
+
+        <t:parameter name="firstName">
+            <div class="form-group">
+
+                <t:label for="firstName"/>
+                <div class="input-group">
+                    <input t:type="TextField" t:id="firstName" value="registrationData.firstName" size="40"/>
+                    <span class="input-group-addon">FN</span>
+                </div>
+                <p class="help-block">First name is required.</p>
+            </div>
+        </t:parameter>
+
+    </form>
+
+    <p>
+        <a t:type="ActionLink" class="btn btn-warning" t:id="clear">Clear Data</a>
+    </p>
+
+    <h2>Second Form</h2>
+
+    <p>
+        Used to test tabbing
+        <em>between</em>
+        forms.
+    </p>
+
+    <t:form t:id="search">
+        <div class="form-group">
+            <t:label for="searchTerm"/>
+            <t:textfield t:id="searchTerm"/>
+        </div>
+        <input class="btn btn-primary" type="submit"/>
+    </t:form>
+</t:border>

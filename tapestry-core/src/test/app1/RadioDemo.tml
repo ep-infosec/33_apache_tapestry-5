@@ -1,0 +1,73 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<h1>Radio Demo</h1>
+
+<p>Choose a department and position:</p>
+
+<t:form>
+    <t:errors/>
+
+    <t:radiogroup t:id="department" t:validate="required">
+        <div class="well">
+
+            <t:loop source="departments" value="loopValue">
+
+                <div class="radio">
+                    <label>
+                        <t:radio t:id="radio" value="loopValue"/>
+                        ${label}
+                    </label>
+                </div>
+
+            </t:loop>
+        </div>
+
+    </t:radiogroup>
+
+    <t:radiogroup t:id="position">
+        <div class="well">
+            <div class="radio-inline">
+                <label>
+                    <t:radio t:id="radio1" value="literal:TEMP"/>
+                    Temp
+                </label>
+                </div>
+            <div class="radio-inline">
+                <label>
+                    <t:radio t:id="radio2" value="literal:LIFER"/>
+                    Lifer
+                </label>
+            </div>
+        </div>
+    </t:radiogroup>
+    
+    <!-- see TAP5-1760 -->
+    <t:radiogroup t:id="department2" t:validate="required">
+        <div class="well">
+          <div class="radio">
+              <label>
+                  <t:radio t:id="radio3" value="literal:ACCOUNTING"/>
+                  Accounting
+              </label>
+          </div>
+        </div>
+
+    </t:radiogroup>
+
+    <input class="btn btn-primary" type="submit" value="Update"/>
+    <t:actionlink class="btn btn-default" t:id="reset">reset</t:actionlink>
+</t:form>
+
+
+<t:if test="department">
+    <hr/>
+    Selected department: ${department}
+</t:if>
+
+<t:if test="position">
+    <hr/>
+    Selected position: ${position}
+</t:if>
+
+
+</html>

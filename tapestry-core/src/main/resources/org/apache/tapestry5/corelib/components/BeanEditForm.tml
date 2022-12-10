@@ -1,0 +1,18 @@
+<form class="${className}" t:id="form" validate="object"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <t:errors/>
+
+    <t:beaneditor t:id="editor" object="object" model="model" overrides="this"/>
+
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <input type="submit" class="btn btn-primary" value="${submitLabel}"/>
+        </div>
+        <t:if test="cancel">
+            <div class="btn-group">
+                <t:submit t:id="cancel" mode="cancel" class="btn btn-default" value="message:core-cancel-label"/>
+            </div>
+        </t:if>
+    </div>
+
+</form>

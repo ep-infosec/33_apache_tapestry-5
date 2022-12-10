@@ -1,0 +1,36 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <head>
+        <title>Default Layout</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>Default Layout <t:devtool/></h1>
+
+            <t:body/>
+
+
+            <div class="panel">
+
+                <t:renderobject object="request"/>
+
+                <t:if test="session">
+                    <h2>Session</h2>
+                    <dl>
+                        <t:loop source="session.attributeNames" value="attributeName">
+                            <dt>${attributeName}</dt>
+                            <dd>
+                                <t:renderobject object="session.getAttribute(attributeName)"/>
+                            </dd>
+                        </t:loop>
+                    </dl>
+                </t:if>
+            </div>
+
+            <div class="row">
+                <t:actionlink t:id="reset" class="btn btn-large btn-warning">reset session</t:actionlink>
+            </div>
+
+        </div>
+    </body>
+</html>

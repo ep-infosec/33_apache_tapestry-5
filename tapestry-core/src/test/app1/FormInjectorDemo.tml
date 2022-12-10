@@ -1,0 +1,40 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<h1>FormInjector Demo (now including AjaxFormLoop)</h1>
+
+<t:form>
+
+    <div class="well span8" t:id="loop" t:type="AjaxFormLoop" source="doubleItems" value="item"
+         encoder="doubleItemEncoder" context="demoContextValue">
+
+        <t:submitnotifier>
+            <div class="form-group">
+                <div class="input-group">
+                    <t:textfield t:id="value" value="item.value"/>
+                    <div class="input-group-addon">
+                        <t:removerowlink class="btn btn-warning btn-xs"><t:glyphicon name="trash"/> remove</t:removerowlink>
+                    </div>
+                </div>
+            </div>
+        </t:submitnotifier>
+
+        <t:parameter name="addRow">
+            <t:addrowlink class="btn btn-default btn-xs">Add another value</t:addrowlink>
+        </t:parameter>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Sum up the values"/>
+
+</t:form>
+
+<p>
+    Current sum:
+    <span id="sum">${sum}</span>
+</p>
+
+<h2>Data</h2>
+
+<t:grid source="doubleItems"/>
+
+
+</html>

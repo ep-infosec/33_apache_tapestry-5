@@ -1,0 +1,29 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+    <t:formfragment t:id="fragment" element="prop:element" visible="true" t:mixins="rendernotification"
+                    data-container-type="core/ajaxformloop-fragment">
+        <t:delegate to="block:ajaxResponse"/>
+    </t:formfragment>
+
+    <t:block id="tail">
+        <t:any t:id="addRowWrapper"
+               t:mixins="rendernotification"
+               element="prop:element" data-afl-behavior="insert-before"
+               data-container-type="core/ajaxformloop-fragment">
+            <t:delegate to="prop:addRow"/>
+        </t:any>
+    </t:block>
+
+    <t:block id="defaultAddRow">
+        <t:addrowlink class="${symbol:tapestry.ajax-form-loop-add-row-link-css-class}">
+            <t:glyphicon name="plus-sign"/>
+            Add row
+        </t:addrowlink>
+    </t:block>
+
+    <t:block id="ajaxResponse">
+        <t:delegate to="beforeBody"/>
+        <t:body/>
+        <t:delegate to="afterBody"/>
+    </t:block>
+</t:container>

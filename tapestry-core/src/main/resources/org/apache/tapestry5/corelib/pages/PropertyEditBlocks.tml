@@ -1,0 +1,55 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+    <t:block id="text">
+        <input t:mixins="formgroup" t:id="textField"/>
+    </t:block>
+
+    <t:block id="number">
+        <input t:id="numberField" t:mixins="formgroup" class="numeric"/>
+    </t:block>
+
+
+    <t:block id="enum">
+        <input t:id="select" t:mixins="formgroup"/>
+    </t:block>
+
+    <t:block id="boolean">
+
+        <div class="checkbox" t:type="If" t:test="bootstrap3Enabled">
+            <label>
+                <div class="input-group">
+                    <input t:id="checkboxField3"/>
+                    ${context.label}
+                </div>
+            </label>
+        </div>
+        <div class="form-group form-check" t:type="If" t:test="!bootstrap3Enabled">
+            <input t:id="checkboxField"/>
+            <label t:type="Label" for="checkboxField">
+                ${context.label}
+            </label>
+        </div>
+    </t:block>
+
+    <t:block id="date">
+        <input t:id="dateField" t:mixins="formgroup"/>
+    </t:block>
+
+    <t:block id="calendar">
+        <input t:id="calendarField" t:mixins="formgroup"/>
+    </t:block>
+
+    <t:block id="password">
+
+        <input t:id="passwordField" t:mixins="formgroup"/>
+
+    </t:block>
+
+    <t:block id="longtext">
+        <textarea t:id="textarea" t:mixins="formgroup"/>
+    </t:block>
+
+    <t:block id="object">
+        <t:beanEditor object="context.propertyValue" model="model"/>
+	</t:block>
+</div>

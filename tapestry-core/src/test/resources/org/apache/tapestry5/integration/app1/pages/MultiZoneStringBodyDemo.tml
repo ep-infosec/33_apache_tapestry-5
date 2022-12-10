@@ -1,0 +1,20 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xml:space="default">
+
+<h1>Zone/Ajax Loop/MultiZoneUpdate</h1>
+
+A multi-zone update that is determined dynamically and uses a string that is coerced into a block to update a zone.
+
+<t:zone t:id="wholeLoopZone" id="wholeLoopZone">
+
+    <ul t:type="loop" t:source="list" t:value="item" index="index">
+        <li xml:space="preserve">
+            <t:eventlink t:id="click" t:event="click" t:zone="wholeLoopZone" t:context="index">click ${index}</t:eventlink>
+            <span t:type="zone" t:id="numberZone" id="${rowId}">${item}</span>
+        </li>
+    </ul>
+
+</t:zone>
+
+<t:eventlink class="btn btn-warning" t:id="reset" t:event="reset" t:zone="wholeLoopZone">Reset Zones</t:eventlink>
+
+</html>

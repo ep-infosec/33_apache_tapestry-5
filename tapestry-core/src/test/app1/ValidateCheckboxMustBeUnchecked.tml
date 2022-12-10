@@ -1,0 +1,11 @@
+<html t:type="border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<t:form>
+    <t:Checkbox t:id="checkbox" value="value" validate="unchecked"/>
+    <t:label for="checkbox">Checkbox must be unchecked</t:label>
+    <p/>
+    <t:submit/>
+</t:form>
+<p>
+	Checkbox's value: ${value}
+</p>
+</html>

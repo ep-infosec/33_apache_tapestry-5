@@ -1,0 +1,13 @@
+<t:border xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <t:form clientValidation="none">
+        <t:errors/>
+
+        <t:checklist t:id="selected" validate="required" model="literal:Red,Green,Blue"
+                     encoder="encoder" label="Color"/>
+
+        <t:submit class="btn btn-primary" value="literal:Submit"/>
+    </t:form>
+
+    <p>Selected colors: ${sorted}</p>
+
+</t:border>

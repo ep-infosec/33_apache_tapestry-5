@@ -1,0 +1,17 @@
+description = "Utilities for running a Tapestry application in Jetty or Tomcat as part of test suite."
+
+dependencies {
+
+    api project(":tapestry-test-constants")
+    implementation "org.eclipse.jetty:jetty-server:${versions.jetty}"
+    implementation "org.eclipse.jetty:jetty-jndi:${versions.jetty}"
+    implementation "org.eclipse.jetty:jetty-plus:${versions.jetty}"
+    implementation "org.eclipse.jetty:jetty-webapp:${versions.jetty}"
+
+    implementation "org.apache.tomcat:tomcat-catalina:${versions.tomcat}"
+    implementation "org.apache.tomcat:tomcat-coyote:${versions.tomcat}"
+    implementation "org.apache.tomcat:tomcat-jasper:${versions.tomcat}"
+
+    implementation "org.apache.tomcat:tomcat-dbcp:${versions.tomcat}"
+    implementation "commons-cli:commons-cli:1.2"
+}

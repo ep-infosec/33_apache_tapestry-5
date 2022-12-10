@@ -1,0 +1,16 @@
+description = "Repackaged, improved (and tested) version of code originally from https://github.com/tdunning/open-json"
+
+dependencies {
+    provided project(':tapestry-ioc')
+    testImplementation "org.junit.jupiter:junit-jupiter:${versions.junitJupiter}"
+}
+
+test {
+    useJUnit()
+}
+
+jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'org.apache.tapestry5.json.modules.JSONModule'
+    }
+}

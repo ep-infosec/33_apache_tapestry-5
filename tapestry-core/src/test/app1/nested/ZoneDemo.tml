@@ -1,0 +1,110 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xml:space="default">
+<h1>Zone/Ajax Demo</h1>
+
+
+<h2>Last update: ${currentTime}</h2>
+
+
+<t:zone t:id="output" style="float:right; width: 800px;" simpleIds="true">
+    <t:if test="name" else="No name has been selected.">
+        Selected: ${name}
+    </t:if>
+</t:zone>
+
+<t:block id="ajaxCSS">
+
+    <div id="demo-aip">
+        <p>
+            This should be styled GREEN.
+        </p>
+    </div>
+
+</t:block>
+
+<t:block id="registrationForm">
+
+
+    <t:beaneditform t:id="registrationForm" object="registration" zone="^" add="roles">
+
+        <t:parameter name="roles">
+            <t:palette selected="registration.roles" encoder="encoder" model="literal:guest,user,admin"/>
+        </t:parameter>
+
+    </t:beaneditform>
+
+    <t:actionlink t:id="clear" zone="output" class="btn btn-warning">Clear Form</t:actionlink>
+
+</t:block>
+
+<t:block id="registrationOutput">
+    <t:beandisplay object="registration" add="roles">
+        <t:parameter name="roles">
+            ${registration.roles}
+        </t:parameter>
+    </t:beandisplay>
+</t:block>
+
+<t:block id="voteForm">
+    <t:form class="form-horizontal well" t:id="vote" zone="^">
+        <div class="form-group">
+            <label>Vote:</label>
+
+            <div class="btn-group">
+                <input class="btn btn-default" type="submit" name="abstain" value="Abstain"/>
+                <t:submit t:id="voteYes" value="Yes"/>
+                <t:submit class="btn btn-warning" t:id="voteNo" value="No"/>
+            </div>
+        </div>
+    </t:form>
+</t:block>
+
+<t:block id="voteOutput">
+    You voted: ${vote}
+</t:block>
+
+
+<div class="btn-group-vertical btn-group-sm">
+    <t:loop source="names" value="name">
+        <t:actionlink class="btn btn-default" t:id="select" context="name" zone="output">Select "${name}"</t:actionlink>
+    </t:loop>
+
+    <t:actionlink class="btn btn-default" t:id="JSON" zone="output">Direct JSON response</t:actionlink>
+    <t:actionlink class="btn btn-default" t:id="fail" zone="output">Failure on the server side</t:actionlink>
+    <t:actionlink t:id="redirect" zone="output" class="btn btn-default">Perform a redirect to another page
+    </t:actionlink>
+    <t:actionlink class="btn btn-default" t:id="secureRedirect" zone="output">Perform secure redirect to another page
+    </t:actionlink>
+    <t:actionlink t:id="blankUpdate" class="btn btn-default" zone="output">Blank the zone</t:actionlink>
+    <t:actionLink t:id="updateZoneWithEmptyBody" zone="output" class="btn btn-default">Update zone with empty body
+    </t:actionLink>
+    <t:actionlink class="btn btn-default" t:id="poorlyFormattedFail" zone="output">Poorly formatted server-side
+        failure
+    </t:actionlink>
+    <t:actionlink t:id="badZone" zone="output" class="btn btn-default">
+        MultiZone update with unknown id
+    </t:actionlink>
+    <t:actionlink t:id="nonZoneUpdate" zone="output" class="btn btn-default">
+        MultiZone update with id of non-Zone
+        element
+    </t:actionlink>
+    <t:actionlink class="btn btn-default" t:id="updateViaAjaxResponseRenderer" zone="output">Update via AjaxResponseRenderer</t:actionlink>
+</div>
+
+<div id="notAZone"/>
+
+<t:block id="empty"/>
+
+<t:zone t:id="zoneWithEmptyBody"/>
+
+<t:block id="forUnknownZone">
+    <p>Content for the unknown zone.</p>
+</t:block>
+
+<t:block id="forNotAZone">
+    <p>Content for zone update for a non-Zone element.</p>
+</t:block>
+
+<div id="zone-update-message"/>
+
+
+</html>

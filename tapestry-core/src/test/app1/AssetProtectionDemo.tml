@@ -1,0 +1,24 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+<h1>Asset Protection Demo</h1>
+
+<ul>
+    <li><a href="${asset:context:availablefile.txt}">Available File</a></li>
+    <li><a href="${asset:context:WEB-INF/unavailable.css}">Unavailable CSS</a></li>
+    <li><a href="${asset:context:WEB-INF}">WEB-INF</a></li>
+    <li><a href="${asset:context:WEB-INF/}">WEB-INF/</a></li>
+    <li><a href="${asset:classpath:/org/apache/tapestry5/integration/app1/pages/unavailablefile.txt}">Unavailable
+        File</a></li>
+    <li><a href="${asset:classpath:/org/apache/tapestry5/integration/app1/pages/availablefile2.txt}">Available File2</a>
+    </li>
+    <li><a href="${asset:context:META-INF}">META-INF</a></li>
+    <li><a href="${asset:context:META-INF/}">META-INF/</a></li>
+    <li><a href="${asset:context:META-INF/unavailable2.txt}">unavailable2.txt</a></li>
+    <li><a href="${asset:context:AssetProtectionDemo.tml}">tml file</a></li>
+    <li><a href="${asset:context:music/MusicDetails.tml}">nested tml file</a></li>
+    <li><a href="/assets/app//services/AppModule.class">.class file in the classpath</a></li>
+    <li><a href="${asset:classpath:/org/apache/tapestry5/integration/app1/fakeconfiguration.properties}">.properties file in the classpath</a></li>
+    <li><a href="${asset:classpath:/org/apache/tapestry5/integration/app1/fakeconfiguration.xml}">.xml file in the classpath</a></li>    
+</ul>
+
+</html>

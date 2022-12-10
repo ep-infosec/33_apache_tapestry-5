@@ -1,0 +1,92 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<p>
+    This page demonstrates the ability to inject assets into components and pass them around as
+    parameters.
+</p>
+
+<p>
+    The Tapestry banner:
+</p>
+
+<img id="icon" src="${icon}"/>
+
+<p>
+    A classpath asset:
+</p>
+
+<img id="button" src="${button}"/>
+
+<p>
+    Image stored in META-INF/assets:
+</p>
+
+<img id="meta" src="${logo}"/>
+
+<p>
+    Relative asset via asset: binding
+</p>
+
+<img id="relative" src="${asset:../smiley.png}"/>
+
+<p>
+    Asset in META-INF/assets via asset: binding
+</p>
+
+<img id="templatemeta" src="${asset:plugin.png}"/>
+
+<p>
+    Asset in sub-folder of META-INF/assets via asset: binding
+</p>
+
+<img id="metasub" src="${asset:sub/accepted.png}"/>
+
+<p>
+    Context asset via context: binding
+</p>
+
+<p>External asset using "asset:http: " binding: <span id="httpAsset">${httpAsset.toClientURL()}</span></p>
+
+<p>External asset using "asset:https:" binding: <span id="httpsAsset">${httpsAsset.toClientURL()}</span></p>
+
+<p>External asset using "asset://:" binding: <span id="protocolRelativeAsset">${protocolRelativeAsset.toClientURL()}</span></p>
+
+<p>External asset using "asset:ftp:" binding: <span id="ftpAsset">${ftpAsset.toClientURL()}</span></p>
+
+<img id="viaContext" src="${context:images/asf_logo_wide.gif}"/>
+
+<p>
+    IE Conditional Stylesheet:
+</p>
+
+<div class="ie-big-blue">
+    Normal in most browsers, but Big and Blue in IE.
+</div>
+
+<p>
+    Via @Import:
+</p>
+
+<div class="via-import">
+    This text should be red.
+</div>
+
+
+<p>
+    Properties file URL:
+    <a id="propurl" href="${properties}">
+        ${properties}
+    </a>
+</p>
+
+<p>
+	Using d3, loaded directly from a CDN using external asset support (example from http://christopheviau.com/d3_tutorial/): 
+</p>
+
+<div id="viz"></div>
+
+<p>Asset with good checksum: <span id="assetUrl">${assetWithCorrectChecksum}</span></p>
+<p>Asset with bad checksum: ${assetWithWrongChecksumUrl}</p>
+<p id="assetWithWrongChecksum" style="display: none">Asset with wrong checksum handled correctly.</p>
+
+</html>

@@ -1,0 +1,48 @@
+<div class="palette" xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <t:remove>Contains the array of option ids for selected elements:</t:remove>
+    <input type="hidden" name="${controlName}" value="${initialJSON}" disabled="${disabledValue}"/>
+
+    <div class="palette-available">
+        <div class="palette-title">
+            <t:delegate to="availableLabel"/>
+        </div>
+        <select class="form-control" multiple="multiple" size="${size}" disabled="${disabledValue}">
+            <t:remove>
+                All the options, in their "natural" order, are rendered here, then selected elements
+                are transferred to the other select.
+            </t:remove>
+            <t:delegate to="mainRenderer"/>
+        </select>
+    </div>
+
+    <div class="btn-group-vertical palette-controls">
+        <button data-action="select" class="btn btn-default" disabled="${disabledValue}">
+            <t:glyphicon name="arrow-right"/>
+        </button>
+        <button data-action="deselect" class="btn btn-default" disabled="${disabledValue}">
+            <t:glyphicon name="arrow-left"/>
+        </button>
+        <t:if test="reorder">
+            <button data-action="move-up" class="btn btn-default" disabled="${disabledValue}">
+                <t:glyphicon name="arrow-up"/>
+            </button>
+            <button data-action="move-down" class="btn btn-default" disabled="${disabledValue}">
+                <t:glyphicon name="arrow-down"/>
+            </button>
+        </t:if>
+    </div>
+    <div class="palette-selected">
+        <div class="palette-title">
+            <t:delegate to="selectedLabel"/>
+        </div>
+        <t:remove>
+            data-value=mode="options" is a bit of hack to inform the client side that the value for the field is all
+            options, selected or not. This is used by validation logic.
+        </t:remove>
+        <select class="form-control" t:type="any" t:id="selected" id="${clientId}" multiple="multiple" size="${size}"
+                disabled="${disabledValue}" data-value-mode="options" t:mixins="rendernotification">
+            <t:remove>Starts empty, populated on the client side.</t:remove>
+        </select>
+    </div>
+    <p class="help-block" data-error-block-for="${clientId}"/>
+</div>

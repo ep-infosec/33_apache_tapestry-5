@@ -1,0 +1,9 @@
+<t:border xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+    <h1>Page called without activation context</h1>
+
+    <p>
+        You should never see me if use an activation context
+    </p>
+
+</t:border>

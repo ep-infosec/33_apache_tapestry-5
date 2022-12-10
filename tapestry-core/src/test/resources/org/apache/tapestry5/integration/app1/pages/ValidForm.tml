@@ -1,0 +1,49 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<h1>Valid Form</h1>
+
+<p> Tapestry 5 form support with server-side validation. </p>
+
+<t:form clientValidation="none" class="form-horizontal">
+    <t:errors/>
+    <div class="form-group">
+        <t:label for="email">This isn't used</t:label>
+        <input t:type="TextField" t:id="email"
+               value="incident.email" size="50" t:validate="required"/>
+    </div>
+    <div class="form-group">
+        <t:label for="message"/>
+        <textarea t:type="TextArea" t:id="message"
+                  t:label="Incident Message" value="incident.message" cols="50" rows="10"> You can put text
+            here, but it isn't used. </textarea>
+    </div>
+    <div class="form-group">
+        <input t:type="Checkbox" t:id="urgent" value="incident.urgent"/>
+        <t:label for="urgent"/>
+    </div>
+    <div class="form-group">
+        <t:label for="hours"/>
+        <input t:type="TextField" t:id="hours"
+               value="incident.hours" size="10" t:validate="required"/>
+    </div>
+    <div class="form-group">
+        <t:label for="emailValidator"/>
+        <input t:type="TextField" t:id="emailValidator"
+               value="emailValidator" size="10" t:validate="email"/>
+    </div>
+    <input type="submit" class="btn btn-primary"/>
+</t:form>
+
+
+<hr/>
+
+<p> Entered data: </p>
+
+<ul>
+    <li>email: [${incident.email}]</li>
+    <li>message: [${incident.message}]</li>
+    <li>urgent: [${incident.urgent}]</li>
+    <li>hours: [${incident.hours}]</li>
+</ul>
+
+
+</html>

@@ -1,0 +1,68 @@
+import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task copyGradleWrapper(type: Copy) {
+    ext.srcDir = file("$buildDir/wrapper")
+
+    inputs.dir srcDir
+    outputs.dir file("$buildDir/resources/main/archetype-resources")
+
+    from srcDir
+    into file("$buildDir/resources/main/archetype-resources")
+
+    exclude '.gradle'
+}
+
+task addGradleWrapper(type: Exec) {
+    workingDir "$buildDir/wrapper"
+    commandLine "${rootProject.projectDir}/gradlew", 'wrapper', '--gradle-version', '7.2'
+
+    standardOutput = new ByteArrayOutputStream()
+
+    ext.output = {
+        return standardOutput.toString()
+    }
+
+    doFirst {
+        def wrapperDirectory = new File(buildDir, "wrapper")
+        wrapperDirectory.mkdirs()
+
+        def settings = new File(wrapperDirectory, "settings.gradle")
+        new FileOutputStream(settings).close();
+    }
+
+    finalizedBy 'copyGradleWrapper'
+}
+
+task addWrappers(dependsOn: [addGradleWrapper]) {
+}
+
+task processFiltered(type: Copy) {
+    ext.srcDir = file('src/main/resources-filtered')
+
+    inputs.dir srcDir
+    outputs.dir sourceSets.main.output.resourcesDir
+
+    from srcDir
+    into sourceSets.main.output.resourcesDir
+
+    filter(FixCrLfFilter)
+    filter(ReplaceTokens, tokens: [
+        quickstartVersion: project.parent.version,
+        tapestryVersion: project.parent.version,
+        springBootVersion: '2.5.4',
+        junitVersion: '5.8.2',
+        jacksonVersion: '2.13.1',
+        jsonVersion: '1.1.4',
+        log4jVersion: '2.17.2',
+        yassonVersion: '2.0.4',
+        servletVersion: '3.1.0',
+        mavenCompilerVersion: '3.8.1',
+        mavenSurefireVersion: '3.0.0-M5',
+        mavenWarVersion: '3.3.1',
+        mavenJettyVersion: '10.0.6',
+        grettyVersion: '3.0.6'
+    ])
+}
+
+processResources.dependsOn([addWrappers, processFiltered])

@@ -1,0 +1,28 @@
+<t:border xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<t:form clientValidation="none">
+		<p>
+			<t:errors />
+		</p>
+		<p>
+			<t:label for="color" />
+			:
+			<t:select t:id="color" validate="required" blankOption="always"
+				model="literal:Red,Green,Blue" />
+
+		</p>
+		<p>
+			<t:label for="month" />
+			:
+			<t:select t:id="month" blankOption="always"
+				model="monthModel" secure="auto" />
+		</p>
+
+		<p>
+			<t:submit value="literal:Submit" />
+		</p>
+	</t:form>
+
+	<p> Selected color: ${color}</p>
+	<p> Selected month: ${month}</p>
+
+</t:border>

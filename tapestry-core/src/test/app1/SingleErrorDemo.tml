@@ -1,0 +1,41 @@
+<html t:type="Border" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<h1>Error Component</h1>
+
+<t:form clientvalidation="none">
+
+    <t:remove>
+        So we build these form groups basically upside down.
+    </t:remove>
+
+    <div class="form-group">
+
+        <t:error for="username"/>
+        <input t:type="TextField" t:id="username" validate="required"/>
+        <t:label for="username"/>
+    </div>
+
+    <div class="form-group">
+
+        <t:error for="password"/>
+        <input t:type="PasswordField" t:id="password" validate="required"/>
+        <t:label for="password"/>
+    </div>
+
+    <div class="form-group">
+        <t:label for="email"/>
+        <t:textfield t:id="email" validate="required"/>
+    </div>
+
+    <p>Outside of the .form-group</p>
+
+    <div class="form-group">
+        <t:error for="email"/>
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit"/>
+    </div>
+</t:form>
+
+
+</html>

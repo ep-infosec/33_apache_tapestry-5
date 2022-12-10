@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="Tapestry 5 Quickstart Project">
+    <fileSets>
+        <fileSet filtered="true" packaged="false">
+            <directory/>
+            <includes>
+                <include>pom-spring-boot.xml</include>
+                <include>build.gradle</include>
+                <include>build-spring-boot.gradle</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="false" packaged="false">
+            <directory/>
+            <includes>
+                <include>.gitignore</include>
+                <include>gradlew</include>
+                <include>gradlew.bat</include>
+                <include>gradle/**</include>
+                <include>settings.gradle</include>
+            </includes>
+        </fileSet>
+        <!-- Source Code -->
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <!-- Resources -->
+        <fileSet filtered="true" packaged="false">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>log4j2.yml</include>
+                <include>META-INF/**</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>components/**</include>
+                <include>pages/**</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="false" packaged="false">
+            <directory>src/main/</directory>
+            <excludes>
+                <exclude>webapp/WEB-INF/web.xml</exclude>
+            </excludes>
+            <includes>
+                <include>webapp/**</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/main/</directory>
+            <includes>
+                <include>webapp/WEB-INF/web.xml</include>
+            </includes>
+        </fileSet>
+        <!-- Test -->
+        <fileSet filtered="true" packaged="true">
+            <directory>src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>

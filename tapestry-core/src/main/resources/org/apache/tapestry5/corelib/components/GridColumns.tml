@@ -1,0 +1,11 @@
+<thead xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xml:space="default">
+<tr data-inplace-grid-links="${inplaceGridLinks}">
+    <th t:id="loop" t:type="Loop" source="columnNames" value="columnName" formstate="none"
+        index="index" t:mixins="rendernotification">
+        <t:delegate to="blockForColumn"/>
+        <t:block id="standardHeader">
+            <a t:id="sort" rel="nofollow">${columnModel.label}</a>
+        </t:block>
+    </th>
+</tr>
+</thead>

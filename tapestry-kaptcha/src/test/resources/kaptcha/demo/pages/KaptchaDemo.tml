@@ -1,0 +1,18 @@
+<t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+    <p id="message">${message}</p>
+
+
+    <t:form t:id="form">
+        <t:errors/>
+
+        <div class="form-group">
+            <t:kaptchaimage t:id="ki"/>
+            <t:label for="kf"/>
+            <t:kaptchafield label="Security Check" t:id="kf" image="ki"/>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Go"/>
+    </t:form>
+
+</t:layout>

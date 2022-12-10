@@ -1,0 +1,8 @@
+<tr t:id="row" t:type="any" t:mixins="renderNotification"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <t:loop source="propertyNames" value="propertyName" index="columnIndex" formstate="none">
+        <td t:id="column" t:type="any" t:mixins="NotEmpty,renderNotification">
+            <t:gridcell model="columnModel" object="row" overrides="overrides"/>
+        </td>
+    </t:loop>
+</tr>

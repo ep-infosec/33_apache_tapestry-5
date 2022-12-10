@@ -1,0 +1,21 @@
+description = "Basic Hibernate services for Tapestry, useable outside of a Tapestry web application"
+
+
+dependencies {
+    implementation project(':tapestry-ioc')
+
+    api group: 'org.hibernate', name: 'hibernate-core', version: versions.hibernate
+    
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+
+    testImplementation project(':tapestry-test')
+    testImplementation "org.easymock:easymock:${versions.easymock}"
+    testImplementation "org.testng:testng:${versions.testng}", { transitive = false }
+    testRuntimeOnly "org.hsqldb:hsqldb:2.2.8"
+}
+
+jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'org.apache.tapestry5.hibernate.modules.HibernateCoreModule'
+    }
+}
